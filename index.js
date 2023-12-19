@@ -59,6 +59,12 @@ io.on('connection', (socket) => {
 
     io.emit('group_message',data);
   });
+
+  socket.on('color-change', (data) => {
+    console.log(`color-change: ${data}`);
+
+    io.emit('color-change',data);
+  });
    
    //page_message
    socket.on('page_message', (data) => {
@@ -158,6 +164,11 @@ io.on('connection', (socket) => {
     console.log(`count_unseen_messages: ${data}`);
 
     io.emit('count_unseen_messages',data);
+  });
+  socket.on('ping_for_lastseen', (data) => {
+    console.log(`ping_for_lastseen: ${data}`);
+
+    io.emit('ping_for_lastseen',data);
   });
 
    //register_reaction
